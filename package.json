@@ -1,0 +1,21 @@
+{
+  "name": "blurts-mobile-screenshots",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "dependencies": {
+    "pontoonql": "github:pdehaan/pontoonql",
+    "puppeteer": "^1.19.0"
+  },
+  "devDependencies": {
+    "imagemin-cli": "^5.0.0"
+  },
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "index.js",
+  "scripts": {
+    "imagemin": "imagemin shots/*.png --out-dir=shots",
+    "poststart": "npm run imagemin",
+    "start": "node cli",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
