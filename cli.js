@@ -38,12 +38,12 @@ async function main(
       DEFAULTS.outDir,
       `${locale}-${deviceFilename}.png`
     );
-    // await scrapeLocale(page, "https://monitor.firefox.com/", locale, filename);
+    await scrapeLocale(page, "https://monitor.firefox.com/", locale, filename);
     files.push({ locale, filename });
   }
   console.log("finished...");
   const output = files.reduce((prev, curr) => {
-    prev += `## ${curr.locale}\n![](${curr.filename})\n\n`;
+    prev += `## ${curr.locale}\n![](../${curr.filename})\n\n`;
     return prev;
   }, "");
   fs.writeFileSync(
