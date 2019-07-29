@@ -12,6 +12,7 @@
   "keywords": [],
   "license": "MPL-2.0",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "imagemin": "imagemin shots/*.png --out-dir=shots",
     "poststart": "npm run imagemin",

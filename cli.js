@@ -38,7 +38,7 @@ async function main(
       DEFAULTS.outDir,
       `${locale}-${deviceFilename}.png`
     );
-    await scrapeLocale(page, "https://monitor.firefox.com/", locale, filename);
+    await scrapeLocale(page, "https://fx-breach-alerts.herokuapp.com/", locale, filename);
     files.push({ locale, filename });
   }
   console.log("finished...");
@@ -64,11 +64,12 @@ async function scrapeLocale(page, href, locale = "en", filename) {
   await page.evaluate(() =>
     document.querySelector(".latest-breach-headline-wrapper").scrollIntoView()
   );
-  await sleep(2000);
-  await page.screenshot({ path: filename });
+  // await sleep(2000);
+  await page.waitFor(2500);
+  await page.screenshot({ path: filename, fullPage: false });
   return;
 }
 
-async function sleep(ms = 3000) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// async function sleep(ms = 3000) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
